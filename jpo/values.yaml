@@ -1,0 +1,18 @@
+image:
+  repository: bobmorane  # Remplacez par votre dépôt d'images Docker
+  serverTag: "jpo-server:latest"
+  clientTag: "jpo-client:latest"
+
+server:
+  replicas: 1
+  port: 5000
+
+client:
+  replicas: 1
+  apiUrl: "http://flask-upload-server:5000/upload"
+
+ingress:
+  enabled: true
+  hostname: "debian.lan"  # Changez avec le nom de domaine souhaité
+  path: "/"
+  className: "nginx"  # Contrôleur d'Ingress à utiliser, par exemple "nginx" pour le NGINX Ingress Controller

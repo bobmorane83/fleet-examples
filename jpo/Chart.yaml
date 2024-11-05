@@ -1,0 +1,5 @@
+apiVersion: v2
+name: flask-upload
+description: "Package Helm pour le serveur Flask et le client de capture d'image"
+version: 0.1.0
+appVersion: "1.0"
