@@ -1,7 +1,6 @@
 image:
   repository: bobmorane  # Remplacez par votre dépôt d'images Docker
   serverTag: "jpo-server:latest"
-  clientTag: "jpo-client:latest"
 
 server:
   replicas: 1
