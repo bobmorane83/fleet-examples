@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`debian.lan`)  # Assurez-vous que le DNS pointe vers le cluster
+    - match: Host(`poc.faf.dev.gcp.renault.com`)  # Assurez-vous que le DNS pointe vers le cluster
       kind: Rule
       services:
         - name: flask-upload-server
