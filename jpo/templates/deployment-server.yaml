@@ -12,6 +12,8 @@ spec:
       labels:
         app: flask-upload-server
     spec:
+      nodeSelector:
+        {{- toYaml .Values.server.nodeSelector | nindent 8 }}
       containers:
         - name: flask-upload-server
           image: "{{ .Values.image.repository }}/{{ .Values.image.serverTag }}"

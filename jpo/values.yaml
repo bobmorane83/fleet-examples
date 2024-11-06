@@ -6,10 +6,14 @@ image:
 server:
   replicas: 1
   port: 5000
+  nodeSelector:
+    kubernetes.io/hostname: poc-vm  # Label du nœud cible pour le serveur
 
 client:
   replicas: 1
-  apiUrl: "http://flask-upload-server:5000/upload"
+  apiUrl: "http://poc.faf.dev.gcp.renault.com:10000/upload"
+  nodeSelector:
+    kubernetes.io/hostname: debian  # Label du nœud cible pour le client
 
 ingress:
   enabled: true
