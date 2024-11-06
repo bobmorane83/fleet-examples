@@ -21,7 +21,7 @@ metadata:
   name: flask-upload-ingress
   namespace: default
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: webalt
+    traefik.ingress.kubernetes.io/router.entrypoints: tcp1
 spec:
   rules:
     - host: poc.faf.dev.gcp.renault.com
