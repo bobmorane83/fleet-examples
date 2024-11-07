@@ -22,8 +22,8 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: tcp1
-    traefik.ingress.kubernetes.io/redirect-entry-point: tcp1
+    traefik.ingress.kubernetes.io/frontend-entry-points: http, https, tcp1
+    # traefik.ingress.kubernetes.io/redirect-entry-point: tcp1
     # traefik.ingress.kubernetes.io/redirect-permanent: "true"
 spec:
   rules:
