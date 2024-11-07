@@ -1,40 +1,41 @@
 # ingressroute-flask-upload.yaml
 
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: flask-upload-ingressroute
-#   namespace: default
-# spec:
-#   entryPoints:
-#     - tcp1
-#   routes:
-#     - match: Host(`poc.faf.dev.gcp.renault.com`)  # Assurez-vous que le DNS pointe vers le cluster
-#       kind: Rule
-#       services:
-#         - name: flask-upload-server
-#           port: 5000
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: flask-upload-ingress
+  name: flask-upload-ingressroute
   namespace: default
-  annotations:
-    kubernetes.io/ingress.class: "traefik"
-    traefik.ingress.kubernetes.io/router.entrypoints: "tcp1"
-    # traefik.ingress.kubernetes.io/frontend-entry-points: "tcp1"
-    # traefik.ingress.kubernetes.io/redirect-entry-point: "tcp1"
-    # traefik.ingress.kubernetes.io/redirect-permanent: "true"
 spec:
-  rules:
-    - host: poc.faf.dev.gcp.renault.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: flask-upload-server
-                port:
-                  number: 5000
+  entryPoints:
+    - tcp1
+  routes:
+    - match: Host(`poc.faf.dev.gcp.renault.com`)  # Assurez-vous que le DNS pointe vers le cluster
+      kind: Rule
+      services:
+        - kind: Service
+          name: flask-upload-server
+          port: 5000
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: flask-upload-ingress
+#   namespace: default
+#   annotations:
+#     kubernetes.io/ingress.class: "traefik"
+#     traefik.ingress.kubernetes.io/router.entrypoints: "tcp1"
+#     # traefik.ingress.kubernetes.io/frontend-entry-points: "tcp1"
+#     # traefik.ingress.kubernetes.io/redirect-entry-point: "tcp1"
+#     # traefik.ingress.kubernetes.io/redirect-permanent: "true"
+# spec:
+#   rules:
+#     - host: poc.faf.dev.gcp.renault.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: flask-upload-server
+#                 port:
+#                   number: 5000
