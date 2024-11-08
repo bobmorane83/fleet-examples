@@ -22,13 +22,34 @@ spec:
             - name: API_URL
               value: "{{ .Values.client.apiUrl }}"
           volumeMounts:
-            - name: video-device
+            - name: video-device0
               mountPath: /dev/video0
+              readOnly: true
+            - name: video-device1
+              mountPath: /dev/video1
+              readOnly: true
+            - name: video-device2
+              mountPath: /dev/video2
+              readOnly: true
+            - name: video-device3
+              mountPath: /dev/video3
               readOnly: true
           securityContext:
             privileged: true  # Donne l'accès aux périphériques pour le conteneur
       volumes:
-        - name: video-device
+        - name: video-device0
           hostPath:
             path: /dev/video0
+            type: CharDevice  # Type de périphérique spécial pour la caméra
+        - name: video-device1
+          hostPath:
+            path: /dev/video1
+            type: CharDevice  # Type de périphérique spécial pour la caméra
+        - name: video-device2
+          hostPath:
+            path: /dev/video2
+            type: CharDevice  # Type de périphérique spécial pour la caméra
+        - name: video-device3
+          hostPath:
+            path: /dev/video3
             type: CharDevice  # Type de périphérique spécial pour la caméra
