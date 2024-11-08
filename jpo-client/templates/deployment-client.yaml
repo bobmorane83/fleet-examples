@@ -12,6 +12,7 @@ spec:
       labels:
         app: image-capture-client
     spec:
+      hostNetwork: true
       nodeSelector:
         {{- toYaml .Values.client.nodeSelector | nindent 8 }}
       containers:
