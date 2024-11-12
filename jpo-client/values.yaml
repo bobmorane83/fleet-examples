@@ -5,5 +5,5 @@ image:
 client:
   replicas: 1
   apiUrl: "http://poc.faf.dev.gcp.renault.com:10002/upload"
-  nodeSelector:
-    kubernetes.io/hostname: localhost-8af79c62  # Label du nœud cible pour le client
+  # nodeSelector:
+  #   kubernetes.io/hostname: localhost-04e45072  # Label du nœud cible pour le client
